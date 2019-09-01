@@ -28,6 +28,11 @@ public class BaseResponse<T> implements Serializable {
         this.text = text;
     }
 
+    public BaseResponse(@NonNull String type, T data) {
+        this.type = type;
+        this.data = data;
+    }
+
     public BaseResponse(@NonNull String type, String text, T data) {
         this.type = type;
         this.text = text;

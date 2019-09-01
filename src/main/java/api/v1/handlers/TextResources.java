@@ -9,4 +9,7 @@ public abstract class TextResources {
 
     // ERRORS
     public static final String USER_EMAIL_FOUND = "User with this email already exists";
+    public static final String USER_EMAIL_NOT_FOUND = "User with this email not found";
+    public static final String USER_NOT_VERIFIED = "Account is not verified";
+    public static final String PASSWORD_NOT_CORRECT = "Password is not correct";
 }
