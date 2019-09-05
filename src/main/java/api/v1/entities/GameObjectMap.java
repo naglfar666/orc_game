@@ -4,6 +4,8 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class GameObjectMap {
@@ -18,10 +20,17 @@ public class GameObjectMap {
 
     private Integer yAxis;
 
+    private String action;
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "gameObjectId", insertable = false, updatable = false)
     @Fetch(FetchMode.JOIN)
     private GameObject gameObject;
+
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "gameObjectMapId")
+    private Set<GameObjectMapLootObject> gameObjectMapLootObject = new HashSet<>();
 
     public Integer getId() {
         return id;
@@ -61,5 +70,21 @@ public class GameObjectMap {
 
     public void setGameObject(GameObject gameObject) {
         this.gameObject = gameObject;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+
+    public Set<GameObjectMapLootObject> getGameObjectMapLootObject() {
+        return gameObjectMapLootObject;
+    }
+
+    public void setGameObjectMapLootObject(Set<GameObjectMapLootObject> gameObjectMapLootObject) {
+        this.gameObjectMapLootObject = gameObjectMapLootObject;
     }
 }
