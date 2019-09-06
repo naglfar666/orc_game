@@ -14,4 +14,5 @@ public abstract class TextResources {
     public static final String USER_EMAIL_NOT_FOUND = "User with this email not found";
     public static final String USER_NOT_VERIFIED = "Account is not verified";
     public static final String PASSWORD_NOT_CORRECT = "Password is not correct";
+    public static final String GAME_OBJECT_NOT_FOUND = "Game object not found";
 }
