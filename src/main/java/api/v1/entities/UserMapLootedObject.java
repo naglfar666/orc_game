@@ -14,7 +14,7 @@ public class UserMapLootedObject {
 
     private Integer lootedObjectId;
 
-    private Integer dateAdd;
+    private Long dateAdd;
 
     private Integer userId;
 
@@ -34,11 +34,11 @@ public class UserMapLootedObject {
         this.lootedObjectId = lootedObjectId;
     }
 
-    public Integer getDateAdd() {
+    public Long getDateAdd() {
         return dateAdd;
     }
 
-    public void setDateAdd(Integer dateAdd) {
+    public void setDateAdd(Long dateAdd) {
         this.dateAdd = dateAdd;
     }
 

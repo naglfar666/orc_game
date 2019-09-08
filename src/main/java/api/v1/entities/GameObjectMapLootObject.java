@@ -16,8 +16,6 @@ public class GameObjectMapLootObject {
 
     private Integer lootObjectId;
 
-    private Integer amount;
-
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "lootObjectId", insertable = false, updatable = false)
     @Fetch(FetchMode.JOIN)
@@ -45,14 +43,6 @@ public class GameObjectMapLootObject {
 
     public void setLootObjectId(Integer lootObjectId) {
         this.lootObjectId = lootObjectId;
-    }
-
-    public Integer getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Integer amount) {
-        this.amount = amount;
     }
 
     public LootObject getLootObject() {

@@ -26,6 +26,10 @@ public class LootObject {
     * */
     private Integer type;
 
+    private Integer width;
+
+    private Integer height;
+
     public Integer getId() {
         return id;
     }
@@ -64,5 +68,21 @@ public class LootObject {
 
     public void setType(Integer type) {
         this.type = type;
+    }
+
+    public Integer getWidth() {
+        return width;
+    }
+
+    public void setWidth(Integer width) {
+        this.width = width;
+    }
+
+    public Integer getHeight() {
+        return height;
+    }
+
+    public void setHeight(Integer height) {
+        this.height = height;
     }
 }

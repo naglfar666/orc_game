@@ -14,6 +14,8 @@ public class UserLoot {
 
     private Integer lootObjectId;
 
+    private Integer userId;
+
     private Integer amount;
 
     private Long dateAdd;
@@ -48,5 +50,13 @@ public class UserLoot {
 
     public void setDateAdd(Long dateAdd) {
         this.dateAdd = dateAdd;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }
