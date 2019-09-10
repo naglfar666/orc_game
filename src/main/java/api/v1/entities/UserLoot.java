@@ -1,9 +1,9 @@
 package api.v1.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+import javax.persistence.*;
 
 @Entity
 public class UserLoot {
@@ -19,6 +19,11 @@ public class UserLoot {
     private Integer amount;
 
     private Long dateAdd;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "lootObjectId", insertable = false, updatable = false)
+    @Fetch(FetchMode.JOIN)
+    private LootObject lootObject;
 
     public Integer getId() {
         return id;
@@ -58,5 +63,13 @@ public class UserLoot {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public LootObject getLootObject() {
+        return lootObject;
+    }
+
+    public void setLootObject(LootObject lootObject) {
+        this.lootObject = lootObject;
     }
 }

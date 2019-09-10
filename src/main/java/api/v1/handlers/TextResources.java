@@ -17,4 +17,5 @@ public abstract class TextResources {
     public static final String GAME_OBJECT_NOT_FOUND = "Game object not found";
     public static final String USER_CANNOT_LOOT_OBJECT = "User cannot loot this";
     public static final String LOOT_OBJECT_ON_MAP_NOT_FOUND = "Loot object on map not found";
+    public static final String USER_CANNOT_USE_LOOT_OBJECT = "User cannot use this object";
 }
