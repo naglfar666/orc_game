@@ -18,7 +18,7 @@ public class FoodController {
 
     @Autowired
     UserLootRepo userLootRepo;
-    
+
     @CrossOrigin
     @GetMapping(path = "/eat/{lootObjectId}")
     public ResponseEntity<?> eat (@PathVariable Integer lootObjectId) {
