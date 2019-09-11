@@ -45,23 +45,6 @@ public class UserController {
             userMapCacheRepo.save(userMapCache);
         }
 
-//        UserMap userMap = userMapRepo.findByUserId(userId);
-//
-//        if (userMap != null) {
-//            userMap.setyAxis(fields.getyAxis());
-//            userMap.setxAxis(fields.getxAxis());
-//            userMap.setDateAdd(new Date().getTime());
-//            userMapRepo.save(userMap);
-//        } else {
-//            UserMap userNewMap = new UserMap();
-//            userNewMap.setUserId(userId);
-//            userNewMap.setyAxis(fields.getyAxis());
-//            userNewMap.setxAxis(fields.getxAxis());
-//            userNewMap.setDateAdd(new Date().getTime());
-//
-//            userMapRepo.save(userNewMap);
-//        }
-
         return ResponseEntity
                 .ok()
                 .body(
@@ -92,7 +75,6 @@ public class UserController {
                                     .build()
                     );
         }
-//        UserMap userMap = userMapRepo.findByUserId(userId);
 
         return ResponseEntity
                 .ok()
@@ -120,38 +102,4 @@ public class UserController {
                 );
     }
 
-    @CrossOrigin
-    @GetMapping(path = "/eat/{lootObjectId}")
-    public ResponseEntity<?> eat (@PathVariable Integer lootObjectId) {
-        Integer userId = (Integer) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        UserLoot loot = userLootRepo.findByUserIdAndLootObjectId(userId, lootObjectId);
-
-        if (loot == null) {
-            return ResponseEntity
-                    .status(HttpStatus.BAD_REQUEST)
-                    .body(
-                            BaseResponse.builder()
-                            .type("error")
-                            .text(TextResources.USER_CANNOT_USE_LOOT_OBJECT)
-                            .build()
-                    );
-        }
-
-        if (loot.getAmount() > 1) {
-            loot.setAmount(loot.getAmount() - 1);
-            loot.setDateAdd(new Date().getTime());
-
-            userLootRepo.save(loot);
-        } else {
-            userLootRepo.deleteById(loot.getId());
-        }
-
-        return ResponseEntity.ok()
-                .body(
-                        BaseResponse.builder()
-                        .type("success")
-                        .build()
-                );
-    }
 }
